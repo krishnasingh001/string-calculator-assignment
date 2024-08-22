@@ -73,5 +73,11 @@ describe StringCalculator do
     it 'handles the multiple new line delimiters' do
       expect(calculator.add('1\n2,3,4\n5')).to eq(15)
     end
+
+    context 'custom delimiters' do
+      it 'handles the semicolon' do
+        expect(calculator.add('//;\n1;2;3;4')).to eq(10)
+      end
+    end
   end
 end
