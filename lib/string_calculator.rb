@@ -6,8 +6,10 @@ class StringCalculator
     return 0 if input.empty?
 
     split_values = input.split(',')
+    split_values.map!(&:to_i)
+
     if input.include?(',')
-      split_values[0].to_i + split_values[1].to_i
+      split_values[0] + split_values[1]
     else
       input.to_i
     end
