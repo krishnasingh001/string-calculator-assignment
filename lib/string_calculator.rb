@@ -26,7 +26,7 @@ class StringCalculator
   end
 
   def negative_numbers
-    @numbers.select(&:negative?)
+    @negative_numbers ||= @numbers.select(&:negative?)
   end
 
   def raise_negative_number_error
