@@ -5,8 +5,7 @@ class StringCalculator
   def add(input)
     return 0 if input.empty?
 
-    split_values = input.split(',')
-    split_values.map!(&:to_i)
+    split_values = input.split(',').map(&:to_i)
 
     if input.include?(',')
       split_values[0] + split_values[1]
