@@ -99,5 +99,9 @@ describe StringCalculator do
     it 'raise an error if the input contains the negative number with custom delimiters' do
       expect { calculator.add('//;\n1;2;-3;4;-5') }.to raise_error("Negative numbers not allowed: -3, -5")
     end
+
+    it 'rejects the number greater than 1000' do
+      expect(calculator.add('1\n2,3,1001')).to eq(6)
+    end
   end
 end

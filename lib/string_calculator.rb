@@ -14,7 +14,10 @@ class StringCalculator
   private
 
   def parse_input
-    newline_to_comma.split(delimiters).map(&:to_i)
+    newline_to_comma
+      .split(delimiters)
+      .map(&:to_i)
+      .reject { |num| num > 1000 }
   end
 
   def newline_to_comma
