@@ -56,7 +56,6 @@ describe StringCalculator do
       end
     end
 
-
     context 'multiples input' do
       it 'returns 13 for 3,1,4,5' do
         expect(calculator.add('3,1,4,5')).to eq(13)
@@ -65,6 +64,14 @@ describe StringCalculator do
       it 'returns 21 for 3,1,4,5,8' do
         expect(calculator.add('3,1,4,5,8')).to eq(21)
       end
+    end
+
+    it 'handles the new line delimiters' do
+      expect(calculator.add('1\n2,3,4')).to eq(10)
+    end
+
+    it 'handles the multiple new line delimiters' do
+      expect(calculator.add('1\n2,3,4\n5')).to eq(15)
     end
   end
 end
