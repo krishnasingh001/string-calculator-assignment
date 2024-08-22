@@ -50,6 +50,21 @@ describe StringCalculator do
       it 'returns 8 for 3,1,4' do
         expect(calculator.add('3,1,4')).to eq(8)
       end
+
+      it 'returns 133 for 25,12,96' do
+        expect(calculator.add('25,12,96')).to eq(133)
+      end
+    end
+
+
+    context 'multiples input' do
+      it 'returns 13 for 3,1,4,5' do
+        expect(calculator.add('3,1,4,5')).to eq(13)
+      end
+
+      it 'returns 21 for 3,1,4,5,8' do
+        expect(calculator.add('3,1,4,5,8')).to eq(21)
+      end
     end
   end
 end
