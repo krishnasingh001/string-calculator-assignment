@@ -7,14 +7,10 @@ class StringCalculator
     return 0 if input.empty?
 
     raise_negative_number_error if contains_negative?
-    sum_of_split_values
+    numbers.sum
   end
 
   private
-
-  def sum_of_split_values
-    numbers.sum
-  end
 
   def numbers
     newline_to_comma.split(delimiters).map(&:to_i)
