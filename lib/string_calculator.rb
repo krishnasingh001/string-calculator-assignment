@@ -5,12 +5,12 @@ class StringCalculator
   def add(input)
     return 0 if input.empty?
 
-    split_values(input)
+    sum_of_split_values(input)
   end
 
   private
 
-  def split_values(input)
+  def sum_of_split_values(input)
     input.split(',').map(&:to_i).sum
   end
 end
