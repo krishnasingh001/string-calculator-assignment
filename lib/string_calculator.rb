@@ -5,11 +5,9 @@ class StringCalculator
   def add(input)
     return 0 if input.empty?
 
-    if input.include?(',')
-      split_values(input)[0] + split_values(input)[1]
-    else
-      input.to_i
-    end
+    return split_values(input)[0] + split_values(input)[1] if input.include?(',')
+
+    input.to_i
   end
 
   private
