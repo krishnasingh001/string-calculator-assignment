@@ -45,5 +45,11 @@ describe StringCalculator do
         expect(calculator.add('50,50')).to eq(100)
       end
     end
+
+    context 'three number' do
+      it 'returns 8 for 3,1,4' do
+        expect(calculator.add('3,1,4')).to eq(8)
+      end
+    end
   end
 end
