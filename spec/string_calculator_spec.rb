@@ -31,5 +31,11 @@ describe StringCalculator do
         expect(calculator.add('110')).to eq(110)
       end
     end
+
+    context 'two number' do
+      it 'returns 7 for 3,4' do
+        expect(calculator.add('3,4')).to eq(7)
+      end
+    end
   end
 end
