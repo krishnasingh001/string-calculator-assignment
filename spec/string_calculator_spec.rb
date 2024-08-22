@@ -78,6 +78,18 @@ describe StringCalculator do
       it 'handles the semicolon' do
         expect(calculator.add('//;\n1;2;3;4')).to eq(10)
       end
+
+      it 'handles the <' do
+        expect(calculator.add('//<\n1<2<3<4')).to eq(10)
+      end
+
+      it 'handles the *' do
+        expect(calculator.add('//*\n1*2*3*4')).to eq(10)
+      end
+
+      it 'handles the letter' do
+        expect(calculator.add('//a\n1a2a3a4')).to eq(10)
+      end
     end
   end
 end

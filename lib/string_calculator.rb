@@ -20,7 +20,7 @@ class StringCalculator
 
   def delimiters(input)
     if input.start_with?('//')
-      ';'
+      input[2]
     else
       ','
     end
