@@ -28,7 +28,7 @@ class StringCalculator
   end
 
   def contains_negative?(input)
-    negative_numbers(input).count > 0
+    negative_numbers(input).count.positive?
   end
 
   def negative_numbers(input)
