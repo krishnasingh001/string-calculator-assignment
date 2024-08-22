@@ -36,6 +36,14 @@ describe StringCalculator do
       it 'returns 7 for 3,4' do
         expect(calculator.add('3,4')).to eq(7)
       end
+
+      it 'returns 16 for 9,7' do
+        expect(calculator.add('9,7')).to eq(16)
+      end
+
+      it 'returns 100 for 50,50' do
+        expect(calculator.add('50,50')).to eq(100)
+      end
     end
   end
 end
