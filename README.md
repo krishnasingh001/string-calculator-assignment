@@ -31,6 +31,7 @@
 
   - If there are multiple negative numbers, show all of them in the exception message, separated by commas.
 
+6. Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
 
 ### Features
 1. **Sum Numbers:** Sum all numbers provided in a string input.
@@ -54,6 +55,9 @@ Here’s an example:
   # Using a custom delimiter
   result = calculator.add('//;\n1;2;3')
   puts result  # Output: 6
+
+  # Numbers greater than 1000 are ignored
+  calculator.add("2,1001,6") # Returns 8
 
   # Handling negative numbers (will raise an error)
   begin
