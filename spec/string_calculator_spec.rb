@@ -91,5 +91,13 @@ describe StringCalculator do
         expect(calculator.add('//a\n1a2a3a4')).to eq(10)
       end
     end
+
+    it 'raise an error if the input contains the negative number' do
+      expect { calculator.add('1\n2,-3,4,-5') }.to raise_error("Negative numbers not allowed: -3, -5")
+    end
+
+    it 'raise an error if the input contains the negative number with custom delimiters' do
+      expect { calculator.add('//;\n1;2;-3;4;-5') }.to raise_error("Negative numbers not allowed: -3, -5")
+    end
   end
 end
