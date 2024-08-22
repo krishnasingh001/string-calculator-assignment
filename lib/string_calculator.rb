@@ -11,10 +11,14 @@ class StringCalculator
   private
 
   def sum_of_split_values(input)
-    newline_to_comma(input).split(',').map(&:to_i).sum
+    newline_to_comma(input).split(delimiters(input)).map(&:to_i).sum
   end
 
   def newline_to_comma(input)
-    input.gsub('\n', ',')
+    input.gsub('\n', delimiters(input))
+  end
+
+  def delimiters(input)
+    input.start_with?('//') ? input[2] : ','
   end
 end
