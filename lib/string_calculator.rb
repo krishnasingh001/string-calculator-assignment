@@ -26,7 +26,7 @@ class StringCalculator
   end
 
   def contains_negative?
-    negative_numbers.count.positive?
+    negative_numbers.any?
   end
 
   def negative_numbers
