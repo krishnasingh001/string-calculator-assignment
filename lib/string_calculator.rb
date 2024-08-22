@@ -7,7 +7,7 @@ class StringCalculator
     return 0 if input.empty?
 
     @numbers = parse_input
-    raise_negative_number_error if contains_negative?
+    raise_negative_number_error if negative_numbers.any?
     @numbers.sum
   end
 
@@ -23,10 +23,6 @@ class StringCalculator
 
   def delimiters
     @input.start_with?('//') ? @input[2] : ','
-  end
-
-  def contains_negative?
-    negative_numbers.any?
   end
 
   def negative_numbers
