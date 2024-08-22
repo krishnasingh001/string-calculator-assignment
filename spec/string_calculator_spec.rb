@@ -9,5 +9,9 @@ describe StringCalculator do
     it 'exists as a instance method' do
       expect(calculator).to respond_to(:add)
     end
+
+    it 'returns the 0 for an empty string' do
+      expect(calculator.add('')).to eq(0)
+    end
   end
 end
