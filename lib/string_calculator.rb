@@ -6,13 +6,14 @@ class StringCalculator
     @input = input
     return 0 if input.empty?
 
+    @numbers = parse_input
     raise_negative_number_error if contains_negative?
-    numbers.sum
+    @numbers.sum
   end
 
   private
 
-  def numbers
+  def parse_input
     newline_to_comma.split(delimiters).map(&:to_i)
   end
 
@@ -29,7 +30,7 @@ class StringCalculator
   end
 
   def negative_numbers
-    numbers.select(&:negative?)
+    @numbers.select(&:negative?)
   end
 
   def raise_negative_number_error
