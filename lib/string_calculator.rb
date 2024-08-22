@@ -3,39 +3,40 @@
 # StringCalculator performs arithmetic by summing numbers from a string input
 class StringCalculator
   def add(input)
+    @input = input
     return 0 if input.empty?
 
-    raise_negative_number_error(input) if contains_negative?(input)
-    sum_of_split_values(input)
+    raise_negative_number_error if contains_negative?
+    sum_of_split_values
   end
 
   private
 
-  def sum_of_split_values(input)
-    numbers(input).sum
+  def sum_of_split_values
+    numbers.sum
   end
 
-  def numbers(input)
-    newline_to_comma(input).split(delimiters(input)).map(&:to_i)
+  def numbers
+    newline_to_comma.split(delimiters).map(&:to_i)
   end
 
-  def newline_to_comma(input)
-    input.gsub('\n', delimiters(input))
+  def newline_to_comma
+    @input.gsub('\n', delimiters)
   end
 
-  def delimiters(input)
-    input.start_with?('//') ? input[2] : ','
+  def delimiters
+    @input.start_with?('//') ? @input[2] : ','
   end
 
-  def contains_negative?(input)
-    negative_numbers(input).count.positive?
+  def contains_negative?
+    negative_numbers.count.positive?
   end
 
-  def negative_numbers(input)
-    numbers(input).select(&:negative?)
+  def negative_numbers
+    numbers.select(&:negative?)
   end
 
-  def raise_negative_number_error(input)
-    raise "Negative numbers not allowed: #{negative_numbers(input).join(', ')}"
+  def raise_negative_number_error
+    raise "Negative numbers not allowed: #{negative_numbers.join(', ')}"
   end
 end
