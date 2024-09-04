@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'byebug'
+
 # StringCalculator performs arithmetic by summing numbers from a string input
 class StringCalculator
   def add(input)
@@ -8,23 +10,27 @@ class StringCalculator
 
     @numbers = parse_input
     raise_negative_number_error if negative_numbers.any?
-    @numbers.sum
+    delimiter == '*' ? multiply : @numbers.sum
   end
 
   private
 
+  def multiply
+    @numbers.select(&:positive?).reduce(:*)
+  end
+
   def parse_input
     newline_to_comma
-      .split(delimiters)
+      .split(delimiter)
       .map(&:to_i)
       .reject { |num| num > 1000 }
   end
 
   def newline_to_comma
-    @input.gsub('\n', delimiters)
+    @input.gsub('\n', delimiter)
   end
 
-  def delimiters
+  def delimiter
     @input.start_with?('//') ? @input[2] : ','
   end
 
