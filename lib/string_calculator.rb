@@ -15,16 +15,16 @@ class StringCalculator
 
   def parse_input
     newline_to_comma
-      .split(delimiters)
+      .split(delimiter)
       .map(&:to_i)
       .reject { |num| num > 1000 }
   end
 
   def newline_to_comma
-    @input.gsub('\n', delimiters)
+    @input.gsub('\n', delimiter)
   end
 
-  def delimiters
+  def delimiter
     @input.start_with?('//') ? @input[2] : ','
   end
 
