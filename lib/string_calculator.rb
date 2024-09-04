@@ -16,7 +16,7 @@ class StringCalculator
   private
 
   def multiply
-    @numbers.select { |num| num. }.reduce(:*)
+    @numbers.select(&:positive?).reduce(:*)
   end
 
   def parse_input
