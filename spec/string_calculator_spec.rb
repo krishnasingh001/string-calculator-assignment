@@ -83,10 +83,6 @@ describe StringCalculator do
         expect(calculator.add('//<\n1<2<3<4')).to eq(10)
       end
 
-      it 'handles the *' do
-        expect(calculator.add('//*\n1*2*3*4')).to eq(10)
-      end
-
       it 'handles the letter' do
         expect(calculator.add('//a\n1a2a3a4')).to eq(10)
       end
@@ -102,6 +98,13 @@ describe StringCalculator do
 
     it 'rejects the number greater than 1000' do
       expect(calculator.add('1\n2,3,1001')).to eq(6)
+    end
+
+    context 'when the custom delimiter is *' do
+      it 'should multiply and return the result' do
+        expect(calculator.add('//*\n1*2*3*4')).to eq(24)
+        expect(calculator.add('//*\n1*1')).to eq(1)
+      end
     end
   end
 end
